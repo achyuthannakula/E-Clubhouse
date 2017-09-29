@@ -28,9 +28,8 @@ document.getElementById("page").innerHTML = 'Articles';
             {
               while($r = mysqli_fetch_assoc($res))
               {
-                echo "<div class=\"col s12 m12\"><div id=\"atr-div\" class=\"card hoverable horizontal valign-wrapper\" style=\"overflow:hidden;\"><div class=\"card-image col s12 m6 l6\" style=\"margin-left:0px\"><a href=\"article.php?sno=".$r['sno']."\"><img class=\"responsive-img\" src=\"".$r['img']."\" style=\"margin-top:10px; margin-bottom:10px\"></a></div><div class=\"card-stacked col s12 m6 l6\"><div id=\"con-div\" class=\"card-content\" style=\"padding:0px\"><p class=\"blue-text\">"."<a href=\"articles.php?t=".$r['tag']."\">".$r['tag']."</a></P><a href=\"article.php?sno=".$r['sno']."\" style=\"color:#000000;\"> <span style=\"font-size:2rem;\">".$r['title']."</span></a><p class=\"grey-text text-darken-6\"><a href=\"articles.php?a=".$r['author']."\">".$r['author']."</a><span class=\"right\">".date('F j, Y',strtotime($r['dt']))."</span></p></div></div></div></div>";
+                echo "<div class=\"col s12 m12\"><div class=\"atr-div card hoverable horizontal valign-wrapper\" style=\"overflow:hidden;\"><div class=\"card-image col s12 m6 l6\" style=\"margin-left:0px\"><a href=\"article.php?sno=".$r['sno']."\"><img class=\"responsive-img\" src=\"".$r['img']."\" style=\"margin-top:10px; margin-bottom:10px\"></a></div><div class=\"card-stacked col s12 m6 l6\"><div class=\"con-div card-content\" style=\"padding:0px\"><p class=\"blue-text\">"."<a href=\"articles.php?t=".$r['tag']."\">".$r['tag']."</a></P><a href=\"article.php?sno=".$r['sno']."\" style=\"color:#000000;\"> <span style=\"font-size:2rem;\">".$r['title']."</span></a><p class=\"grey-text text-darken-6\"><a href=\"articles.php?a=".$r['author']."\">".$r['author']."</a><span class=\"right\">".date('F j, Y',strtotime($r['dt']))."</span></p></div></div></div></div>";
               }
-              exit();
             }
             else {
               echo "<br><br>No Articles Posted";
@@ -39,14 +38,24 @@ document.getElementById("page").innerHTML = 'Articles';
 
     </div>
   </div>
+
 </main>
+<script>
+if ( document.documentElement.clientWidth <= 739) {
+  var cardClass1 = document.getElementsByClassName("atr-div");
+  for(var i=0; i < cardClass1.length; i++){
+    cardClass1[i].calssName = 'atr-div card hoverable';
+  }
+  var cardClass2 = document.getElementsByClassName("con-div");
+  for(var i=0; i < cardClass2.length; i++){
+    cardClass2[i].style = '';
+  }
+  var cardClass3 = document.getElementsByClassName("art-span");
+  for(var i=0; i < cardClass3.length; i++){
+    cardClass3[i].style = 'font-size:1.5rem';
+  }
+}
+</script>
 <?php
 require('footer.html');
 ?>
-<script>
-if ( $(window).width() <= 739) {
-document.getElementById("atr-div").className = 'card hoverable';
-document.getElementById("con-div").style = '';
-document.getElementById("art-span").style = 'font-size:1.5rem';
-}
-</script>

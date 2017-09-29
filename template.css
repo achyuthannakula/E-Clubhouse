@@ -1,3 +1,15 @@
+.vote:hover{
+  cursor:pointer;
+}
+.comment{
+  font-size: 0.85em;
+  margin:0.8em 0.8em;
+}
+#loader{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
 ul.card-action-buttons
 {
   margin:-26px 0 0 0;
@@ -93,7 +105,7 @@ a.button-collapse.top-nav
     height: 48px;
     width: 48px;
     left: 7.5%;
-    top: 0;
+    top: 1.5em;
     float: none;
     margin-left: 1.5rem;
     color: #fff;

@@ -9,7 +9,19 @@ $(document).ready(function() {
         selectMonths: true, // Creates a dropdown to control month
         selectYears: 2 // Creates a dropdown of 15 years to control year
     });
-    $('.modal-trigger').leanModal();
     $('.carousel').carousel();
     $('input#post_namea','input#post_unit','input#post_namen').characterCounter();
+    $('.chips-placeholder').material_chip({
+    placeholder: 'Enter a tag',
+    secondaryPlaceholder: '+Tag',
+    autocompleteOptions: {
+      data: {
+        'Apple': null,
+        'Microsoft': null,
+        'Google' : null
+      },
+      limit: Infinity,
+      minLength: 1
+    }
+  });
 });
