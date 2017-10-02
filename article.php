@@ -7,7 +7,7 @@ document.getElementById("page").innerHTML = 'Articles';
 </script>
 <main>
   <?php
-  $l=$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+  $l=(isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
   require("db_config.php");
   $q = "SELECT * FROM ARTICLES WHERE sno=".mysqli_real_escape_string($conn,$_GET['sno']);
   $res = mysqli_query($conn,$q);

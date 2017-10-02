@@ -1,4 +1,17 @@
+#data-container a{
+  target : '_blank';
+}
 .vote:hover{
+  cursor:pointer;
+}
+.btn:hover{
+    background-color:#2196F3;
+}
+#sortby-dropdown li a{
+  color:#2196F3;
+  cursor:pointer;
+}
+.apointer{
   cursor:pointer;
 }
 .comment{
@@ -138,6 +151,7 @@ a.button-collapse.top-nav
     margin-left: 5px;
     margin-right: 5px;
     margin-bottom: 10px;
+    background-color:#2196F3;
 }
 
 .dropdown-container

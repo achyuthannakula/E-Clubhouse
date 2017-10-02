@@ -52,8 +52,17 @@
         </div>
       </div>
     </div>
-  <div id='data-container' style='display:none'>
-    <div class="container"><h4 style="color:grey;">New Questions</h4></div>
+  <div id='qdata-container' style='display:none'>
+    <div class="container row"><h4 id="container_title" class="col s8" style="color:grey;">New Questions</h4>
+      <!-- Dropdown Trigger -->
+      <a style="position:relative;top:1em;" class='dropdown-button btn apointer col s2 offset-s1' data-activates='sortby-dropdown'>Sort by<i class="material-icons">arrow_drop_down</i></a>
+      <!-- Dropdown Structure -->
+      <ul id='sortby-dropdown' class='dropdown-content'>
+        <li><a onclick="load(1);">Newer</a></li>
+        <li><a onclick="load(2);">Older</a></li>
+        <li><a onclick="load(3);">Votes</a></li>
+      </ul>
+    </div>
     <div class="container divider"></div>
     <div class="container" id="questions">
     </div>

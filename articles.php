@@ -10,14 +10,7 @@ document.getElementById("page").innerHTML = 'Articles';
         <div class="row">
             <?php
             require("db_config.php");
-            if(!isset($_GET['a'])&&!isset($_GET['t']))
-              $q = "SELECT * FROM ARTICLES";
-            else if(isset($_GET['a']) && strlen($_GET['a'])>0)
-              $q = "SELECT * FROM ARTICLES WHERE author=".mysqli_real_escape_string($conn,$_GET['a']);
-            else if(strlen($_GET['t'])>0)
-              $q = "SELECT * FROM ARTICLES WHERE tag=".mysqli_real_escape_string($conn,$_GET['t']);
-            else
-              $q = "SELECT * FROM ARTICLES";
+            $q = "SELECT * FROM ARTICLES ORDER BY sno DESC";
             $res = mysqli_query($conn,$q);
             if(is_bool($res) && !$res)
             {
@@ -28,7 +21,7 @@ document.getElementById("page").innerHTML = 'Articles';
             {
               while($r = mysqli_fetch_assoc($res))
               {
-                echo "<div class=\"col s12 m12\"><div class=\"atr-div card hoverable horizontal valign-wrapper\" style=\"overflow:hidden;\"><div class=\"card-image col s12 m6 l6\" style=\"margin-left:0px\"><a href=\"article.php?sno=".$r['sno']."\"><img class=\"responsive-img\" src=\"".$r['img']."\" style=\"margin-top:10px; margin-bottom:10px\"></a></div><div class=\"card-stacked col s12 m6 l6\"><div class=\"con-div card-content\" style=\"padding:0px\"><p class=\"blue-text\">"."<a href=\"articles.php?t=".$r['tag']."\">".$r['tag']."</a></P><a href=\"article.php?sno=".$r['sno']."\" style=\"color:#000000;\"> <span style=\"font-size:2rem;\">".$r['title']."</span></a><p class=\"grey-text text-darken-6\"><a href=\"articles.php?a=".$r['author']."\">".$r['author']."</a><span class=\"right\">".date('F j, Y',strtotime($r['dt']))."</span></p></div></div></div></div>";
+                echo "<div class=\"col s12 m12\"><div class=\"atr-div card hoverable horizontal valign-wrapper\" style=\"overflow:hidden;\"><div class=\"card-image col s12 m6 l6\" style=\"margin-left:0px\"><a href=\"article.php?sno=".$r['sno']."\"><img class=\"responsive-img\" src=\"".$r['img']."\" style=\"margin-top:10px; margin-bottom:10px\"></a></div><div class=\"card-stacked col s12 m6 l6\"><div class=\"con-div card-content\" style=\"padding:0px\"><p class=\"blue-text\">"."<a>".$r['tag']."</a></P><a href=\"article.php?sno=".$r['sno']."\" style=\"color:#000000;\"> <span style=\"font-size:2rem;\">".$r['title']."</span></a><p class=\"grey-text text-darken-6\"><a>".$r['author']."</a><span class=\"right\">".date('F j, Y',strtotime($r['dt']))."</span></p></div></div></div></div>";
               }
             }
             else {

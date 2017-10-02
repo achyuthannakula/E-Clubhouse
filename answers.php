@@ -100,29 +100,5 @@
 
   </div>
 
-
-
-  <!--<div id="data-container" style='display:none'>
-    <div id="quesvalue" style="display:none;"></div>
-    <div class='row' id= >
-      <div class="col s12 m12 l12" id='question-container'>
-        <div class="card teal question">
-          <div class='card-content'><h3 id='qtitle'></h3><h5 id='question'></h5></div>
-          <div class='card-action '><div class='right' id='qvotes'></div><div class='left-align'><spam id='qname'></spam><br><spam id='qdate'></spam></div></div>
-        </div>
-      </div>
-       ____________________________________Answers_____________________________________________
-      <div id="nothing" ></div>
-
-    </div>
-    <div class="container" id='editor-container'>
-      <h4>Your Answer</h4>
-      <textarea name='editor' id='editor'></textarea>
-      <div class='divider' style="margin:1ex 0"></div>
-      <div id='editor-test'></div>
-      <div class='divider' style="margin:1ex 0"></div>
-      <button class="btn waves-effect waves-light right" type='submit' name='answer' style="margin:1ex 0" onclick="answer()">Submit<i class='material-icons right'>send</i></button>
-    </div>
-  </div> -->
 </main>
 <?php require('footer.html'); ?>
